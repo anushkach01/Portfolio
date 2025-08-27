@@ -1,21 +1,30 @@
 import "./App.css";
 import profilePic from "./assests/myProfile.jpg";
-import resume from "./assests/Anushka_Chandurkar_Resume.pdf"
+import resume from "./assests/Anushka_Chandurkar_Resume.pdf";
+import { useState } from "react";
+import { Menu, X } from "lucide-react"; // for hamburger/close icons
 
 function App() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="App">
 
       {/* Navbar */}
       <nav className="navbar">
-        <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+      {/* Hamburger Button (visible on mobile) */}
+      <button className="menu-toggle" onClick={() => setIsOpen(!isOpen)}>
+        {isOpen ? <X size={28} /> : <Menu size={28} />}
+      </button>
+
+      {/* Menu Items */}
+      <ul className={isOpen ? "nav-links open" : "nav-links"}>
+        <li><a href="#hero" onClick={() => setIsOpen(false)}>Home</a></li>
+        <li><a href="#experience" onClick={() => setIsOpen(false)}>Experience</a></li>
+        <li><a href="#skills" onClick={() => setIsOpen(false)}>Skills</a></li>
+        <li><a href="#projects" onClick={() => setIsOpen(false)}>Projects</a></li>
+        <li><a href="#contact" onClick={() => setIsOpen(false)}>Contact</a></li>
+      </ul>
+    </nav>
 
       {/* Hero Section */}
       <section className="hero" id="hero">
