@@ -42,7 +42,7 @@ function App() {
         </h2>
         <div className="buttons">
           <a href="#projects" className="btn">View My Work</a>
-          <a href="" className="btn" download={resume} >Download Resume </a>
+          <a href={resume} className="btn" download >Download Resume </a>
         </div>
       </section>
 
